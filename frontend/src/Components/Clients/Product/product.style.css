@@ -1,0 +1,52 @@
+.display-product-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+
+.table-responsive {
+    height: 370px;
+}
+
+@media only screen and (min-width:600px) {
+    .display-product-content .card-header {
+        gap: 12px;
+    }
+
+    .product-table {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .table-responsive table {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .display-product-content .card-header {
+        gap: 12px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product-table {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .display-product-content .card-header button {
+        width: 100%;
+    }
+
+}

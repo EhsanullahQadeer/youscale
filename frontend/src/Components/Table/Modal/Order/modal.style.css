@@ -1,0 +1,38 @@
+.custum-time-line {
+    overflow-y: scroll !important;
+}
+
+.comment-input {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.order-id-date {
+    display: flex;
+    justify-content: space-around;
+}
+
+.restant-txt {
+    margin: 20px;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.next-btn {
+    margin-left: 15px;
+}
+
+.call-ws-media {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 450px) and (min-width: 400px) {
+    .call-ws-media {
+        gap: 0px
+    }
+}

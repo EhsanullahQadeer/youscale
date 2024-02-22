@@ -1,0 +1,42 @@
+name: Youscale API CI app deployment
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+    # Only deploy when the pull request is merged and approved
+    # You can customize this to your specific requirements
+    #conditions: ${{ github.event.pull_request.merged == true && github.event.pull_request.reviews[0].state == 'APPROVED' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Deploy app
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        script: |
+          cd youscale.backend
+          git pull git@github.com:Oumardev/youscale.backend.git master
+          npm install
+          pm2 restart youscale_api
